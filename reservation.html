@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Reservation - Restaurant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Taste Fusion</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="reservation.html" class="btn-reservation">Reservation</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Reservation Section -->
+    <section class="reservation-section">
+        <div class="container">
+            <h1 class="section-title">Make a Reservation</h1>
+
+            <form class="reservation-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="1" required>
+
+                <button type="submit">Reserve Table</button>
+            </form>
+        </div>
+    </section>
+
+
+<!-- Footer Section -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Taste Fusion. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a>
+            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Add this script to your reservation.html or a linked JS file
+document.getElementById('reservation-form').addEventListener('submit', function(event) {
+    // Prevent form submission for validation
+    event.preventDefault();
+
+    // Get form fields
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const guests = document.getElementById('guests').value;
+
+    // Basic validation
+    if (!name || !email || !date || !time || !guests) {
+        alert('Please fill in all fields.');
+        return;
+    }
+
+    // Email format validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    // If all validations pass, you can submit the form or proceed with your logic
+    alert('Reservation submitted successfully!');
+    // Uncomment the line below to actually submit the form
+    // this.submit();
+});
+
+</script>
+</body>
+</html>
